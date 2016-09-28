@@ -16,8 +16,8 @@ module TsvBuddy
   end
 
   def array_to_tsv(array)
-    array.map { |row| row.join(TSV_TAB) }
-         .join(TSV_NEWLINE) << TSV_NEWLINE
+    array.map { |row| row.join(TSV_TAB) + TSV_NEWLINE }
+         .join
   end
 
   # take_tsv: converts a String with TSV data into @data
@@ -29,6 +29,6 @@ module TsvBuddy
   # to_tsv: converts @data into tsv string
   # returns: String in TSV format
   def to_tsv
-    array_to_tsv hash_to_array(data)
+    array_to_tsv hash_to_array data
   end
 end
